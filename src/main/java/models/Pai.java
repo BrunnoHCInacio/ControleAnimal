@@ -11,6 +11,7 @@ public class Pai {
 
 	private long idPai;
 	private String nome;
+	
 	private Date dataAlteracao;
 	private Date dataCriacao;
 	private String usuarioCadastro;

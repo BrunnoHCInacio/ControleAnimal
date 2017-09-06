@@ -16,6 +16,7 @@ public class Lote {
 	private long idLote;
 	
 	private long codigo;
+	
 	private Date dataAlteracao;
 	private Date dataCriacao;
 	private String usuarioCadastro;

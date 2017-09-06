@@ -19,92 +19,87 @@
 	<![endif]-->
 </head>
 <body>
-<section class="aw-layout-page">
+	<section class="aw-layout-page">
+		<div class="page-header">
+			<div class="container-fluid">
+				<h1>Cadastro de Animal</h1>
+			</div>
+		</div>
+		<div class="container-fluid">
 
-
-<div class="page-header">
-	<div class="container-fluid">
-		<h1>
-			Cadastro de Animal
-		</h1>
-	</div>
-</div>
-
-<div class="container-fluid">
-
-	<div class="alert  alert-danger  alert-dismissible" role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		<i class="fa  fa-exclamation-circle"></i> Já existe um animal com o codigo informado.
-	</div>
+		<div class="alert  alert-danger  alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<i class="fa  fa-exclamation-circle"></i> Já existe um animal com o codigo informado.
+		</div>
 	
-	<div layout:include="Mensagem"></div>
-	<form method="POST" id="form-cadastro-animal" class="form-vertical  js-form-loading" >
-
-		<input type="hidden" th:field="*{id}"/>
-		<div class="form-group" th:classappend="${#fields.hasErrors('codigoBarras')} ? has-error">
-			<label for="codigoBrinco">Codigo do brinco</label>
-			<input id="codigoBrinco" name="codigoBrinco" type="text" class="form-control"/>
-		</div>
-		
-		<div class="form-group">
-			<label for="codigoRaca">Codigo da raca</label>
-			<input id="codigoRaca" name="codigoRaca" type="text" class="form-control" />
-		</div>
-		
-		<div class="form-group" >
-			<label for="nome">Nome</label>
-			<input id="nome" name="nome" type="text" class="form-control" th:field="*{nome}"/>
-		</div>
-		<div class="form-group row" >
-			<div class="col-sm-3" >
-				<label for="mae">Nome da mãe</label>
-				<input class="form-control" type="text" id="mae" name="mae" >
+		<div layout:include="Mensagem"></div>
+		<form method="POST" action="/animais" id="form-cadastro-animal" class="form-vertical  js-form-loading" >
+	
+			<input type="hidden" th:field="*{id}"/>
+			<div class="form-group" th:classappend="${#fields.hasErrors('codigoBarras')} ? has-error">
+				<label for="codigoBrinco">Codigo do brinco</label>
+				<input id="codigoBrinco" name="codigoBrinco" type="text" class="form-control"/>
 			</div>
-			<div class="col-sm-3" >
-				<label for="pai">Nome do pai</label>
-				<input class="form-control" type="text" id="pai" name="pai" >
-			</div>
-			<div class="col-sm-3" >
-				<label for="peso">Peso ao nascer</label>
-				<input class="form-control" type="text" id="peso" name="peso"  placeholder="Ex: 5 Kilos">
-			</div>
-			<div class="col-sm-3" >
-				<label for="dataNascimento">Data de nascimento</label>
-				<input class="form-control" type="date" id="dataNascimento" name="dataNascimento" >
-			</div>
-			<div class="col-sm-3" >
-				<label for="lote">Lote</label>
-				<input class="form-control" type="text" id="lote" name="lote" >
-			</div>
-			<div class="col-sm-3 ">
-				<label  for="focusCategoria">Fazenda</label>
-				<select class="form-control" id="fazenda"
-					name="fazenda" onchange="cadastroProdutoSelect()">
-					<<option></option>>
-					<option>São caetano</option>
-					<option>Chapadão</option>
-					<!-- Comando para criar uma lista de fazenda -->
-					<option th:each="categoria : ${fazenda}"
-						th:value="${fazenda.id}" th:text="${fazenda.nome}"></option>
-				</select>
-			</div>
-
-			<div class="col-sm-3">
-					<label  for="focusCategoria"> </label>
-				<a th:href="@{/categorias/novo}"><button type="button"
-						class="form-control btn btn-success">
-						Nova Fazenda <i class="icon-plus icon-white"></i>
-					</button></a>
-			</div>
-		</div>
+			
 			<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<button class="btn  btn-primary " type="submit">Salvar</button>
-				<a href="" class="btn  btn-default">Cancelar</a>
-				<a href="#" class="btn  btn-link  aw-btn-link-danger" onclick="excluir()">Excluir animal</a>
+				<label for="codigoRaca">Codigo da raca</label>
+				<input id="codigoRaca" name="codigoRaca" type="text" class="form-control" />
 			</div>
-</div>
-		</form>
+			
+			<div class="form-group" >
+				<label for="nome">Nome</label>
+				<input id="nome" name="nome" type="text" class="form-control" th:field="*{nome}"/>
+			</div>
+			<div class="form-group row" >
+				<div class="col-sm-3" >
+					<label for="mae">Nome da mãe</label>
+					<input class="form-control" type="text" id="mae" name="mae" >
+				</div>
+				<div class="col-sm-3" >
+					<label for="pai">Nome do pai</label>
+					<input class="form-control" type="text" id="pai" name="pai" >
+				</div>
+				<div class="col-sm-3" >
+					<label for="peso">Peso ao nascer</label>
+					<input class="form-control" type="text" id="peso" name="peso"  placeholder="Ex: 5 Kilos">
+				</div>
+				<div class="col-sm-3" >
+					<label for="dataNascimento">Data de nascimento</label>
+					<input class="form-control" type="date" id="dataNascimento" name="dataNascimento" >
+				</div>
+				<div class="col-sm-3" >
+					<label for="lote">Lote</label>
+					<input class="form-control" type="text" id="lote" name="lote" >
+				</div>
+				<div class="col-sm-3 ">
+					<label  for="focusCategoria">Fazenda</label>
+					<select class="form-control" id="fazenda"
+						name="fazenda" onchange="cadastroProdutoSelect()">
+						<<option></option>>
+						<option>São caetano</option>
+						<option>Chapadão</option>
+						<!-- Comando para criar uma lista de fazenda -->
+						<option th:each="categoria : ${fazenda}"
+							th:value="${fazenda.id}" th:text="${fazenda.nome}"></option>
+					</select>
+				</div>
+	
+				<div class="col-sm-3">
+						<label  for="focusCategoria"> </label>
+					<a th:href="@{/categorias/novo}"><button type="button"
+							class="form-control btn btn-success">
+							Nova Fazenda <i class="icon-plus icon-white"></i>
+						</button></a>
+				</div>
+			</div>
+				<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button class="btn  btn-primary " type="submit">Salvar</button>
+					<a href="" class="btn  btn-default">Cancelar</a>
+					<a href="#" class="btn  btn-link  aw-btn-link-danger" onclick="excluir()">Excluir animal</a>
+				</div>
+	</div>
+			</form>
 	</div>
 
 <script>

@@ -22,7 +22,9 @@ public class CicloVida {
 	
 	@Enumerated(EnumType.STRING)
 	private Localizacao local;
+	
 	private Animal fkAnimal;
+	
 	private Date dataAlteracao;
 	private Date dataCriacao;
 	private String usuarioCadastro;
