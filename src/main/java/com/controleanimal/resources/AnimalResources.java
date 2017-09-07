@@ -14,6 +14,8 @@ public class AnimalResources {
 		return "cadastro-animaisFoda";
 	}
 
+
+
 	/*@RequestMapping(method = RequestMethod.POST)
 	public String salvar(Animal animal) {
 
