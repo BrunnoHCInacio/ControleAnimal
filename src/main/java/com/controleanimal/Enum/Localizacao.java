@@ -1,4 +1,4 @@
-package models;
+package com.controleanimal.Enum;
 
 public enum Localizacao {
 	

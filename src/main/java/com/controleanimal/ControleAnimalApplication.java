@@ -1,6 +1,5 @@
 package com.controleanimal;
 
-import java.util.Locale;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,8 +12,5 @@ public class ControleAnimalApplication {
 		SpringApplication.run(ControleAnimalApplication.class, args);
 	}
 	
-	/*@Bean
-	public FixedLocaleResolver localeResolver() {
-	return new FixedLocaleResolver(new Locale("pt", "BR"));
-	}*/
+
 }

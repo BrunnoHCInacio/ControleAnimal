@@ -1,12 +1,9 @@
-package models;
+package com.controleanimal.models;
 
 import java.sql.Date;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="Fazendas")
@@ -20,10 +17,11 @@ public class Fazenda {
 	private Date dataCriacao;
 	private String usuarioCadastro;
 	private String usuarioAlteracao;
+
+	@OneToMany(mappedBy = "fazenda")
+	private List<Animal> animal;
 	
-	public Fazenda() {
-		super();
-	}
+
 	public Long getIdFazenda() {
 		return idFazenda;
 	}

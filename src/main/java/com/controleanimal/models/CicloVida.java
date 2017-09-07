@@ -1,14 +1,11 @@
-package models;
+package com.controleanimal.models;
+
+import com.controleanimal.Enum.FaseVida;
+import com.controleanimal.Enum.Localizacao;
 
 import java.sql.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="CiclosVida")
@@ -22,7 +19,8 @@ public class CicloVida {
 	
 	@Enumerated(EnumType.STRING)
 	private Localizacao local;
-	
+
+	@Transient
 	private Animal fkAnimal;
 	
 	private Date dataAlteracao;

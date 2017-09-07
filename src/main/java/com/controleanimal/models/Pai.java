@@ -1,36 +1,34 @@
-package models;
+package com.controleanimal.models;
 
 import java.sql.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Maes")
-public class Mae {
+@Table(name="Pais")
+public class Pai {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idMae;
-	
+	private long idPai;
 	private String nome;
+	
 	private Date dataAlteracao;
 	private Date dataCriacao;
 	private String usuarioCadastro;
 	private String usuarioAlteracao;
 	
-	public Mae() {
+	public Pai() {
 		super();
 	}
 	
-	public long getIdMae() {
-		return idMae;
+	public long getIdPai() {
+		return idPai;
 	}
 	
-	public void setIdMae(long idMae) {
-		this.idMae = idMae;
+	public void setIdPai(long idPai) {
+		this.idPai = idPai;
 	}
 	
 	public String getNome() {
@@ -45,7 +43,7 @@ public class Mae {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (idMae ^ (idMae >>> 32));
+		result = prime * result + (int) (idPai ^ (idPai >>> 32));
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
@@ -58,8 +56,8 @@ public class Mae {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Mae other = (Mae) obj;
-		if (idMae != other.idMae)
+		Pai other = (Pai) obj;
+		if (idPai != other.idPai)
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
@@ -68,5 +66,6 @@ public class Mae {
 			return false;
 		return true;
 	}
+	
 	
 }

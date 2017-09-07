@@ -1,13 +1,15 @@
-package models;
+package com.controleanimal.models;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
+
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="Pesagens")
 public class Pesagem {
+	@Id
 	private long idPesagem;
 	
 	@Temporal(TemporalType.DATE)

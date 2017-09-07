@@ -1,4 +1,4 @@
-package models;
+package com.controleanimal.models;
 
 import java.sql.Date;
 
